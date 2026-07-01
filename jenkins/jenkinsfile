@@ -1,0 +1,63 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main',
+                url: 'https://github.com/Shivam-Malik-Dev/node-todo-app.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t shivammalikdocker/todo-app:latest .'
+            }
+        }
+
+        stage('Login to Docker Hub') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'dockerHub',
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
+                    )
+                ]) {
+
+                    sh '''
+                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                    '''
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                sh 'docker push shivammalikdocker/todo-app:latest'
+            }
+        }
+
+        stage('Deploy Application') {
+            steps {
+
+                sh '''
+                docker pull shivammalikdocker/todo-app:latest
+
+                docker stop todo-app || true
+
+                docker rm todo-app || true
+
+                docker run -d \
+                  --name todo-app \
+                  -p 8000:8000 \
+                  shivammalikdocker/todo-app:latest
+                '''
+            }
+        }
+
+    }
+
+}
