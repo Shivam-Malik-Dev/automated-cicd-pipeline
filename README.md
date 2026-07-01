@@ -46,7 +46,6 @@ automated-cicd-pipeline/
 ├── app/
 ├── architecture/
 │   ├── architecture.png
-│   └── pipeline-flow.png
 │
 ├── docs/
 │   ├── 01-project-overview.md
