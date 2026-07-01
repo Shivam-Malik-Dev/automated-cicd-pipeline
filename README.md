@@ -2,104 +2,39 @@
 
 <p align="center">
 
-![GitHub last commit](https://img.shields.io/github/last-commit/Shivam-Malik-Dev/node-todo-app?style=flat-square)
-![GitHub repo size](https://img.shields.io/github/repo-size/Shivam-Malik-Dev/node-todo-app?style=flat-square)
-![GitHub stars](https://img.shields.io/github/stars/Shivam-Malik-Dev/node-todo-app?style=flat-square)
-![GitHub forks](https://img.shields.io/github/forks/Shivam-Malik-Dev/node-todo-app?style=flat-square)
+<img src="architecture/architecture.png" width="95%">
 
 </p>
 
 <p align="center">
 
-![AWS](https://img.shields.io/badge/AWS-EC2-orange?style=for-the-badge&logo=amazonaws)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
-![Docker Hub](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)
-![NodeJS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
-![Ubuntu](https://img.shields.io/badge/Ubuntu-Server-E95420?style=for-the-badge&logo=ubuntu)
+<img src="architecture/pipeline-flow.png" width="95%">
 
 </p>
 
 ---
 
-# 📌 Project Overview
+## 📌 Project Overview
 
-This project demonstrates a complete **End-to-End Automated CI/CD Pipeline** for a **Node.js Todo Application** using modern DevOps tools and cloud infrastructure.
+This project demonstrates a complete **End-to-End CI/CD Pipeline** for a Node.js Todo Application using GitHub, Jenkins, Docker, Docker Hub, and AWS EC2.
 
-Whenever a developer pushes code to GitHub, Jenkins automatically triggers the pipeline through GitHub Webhooks, builds a Docker image, pushes it to Docker Hub, and deploys the latest application version on an AWS EC2 instance without any manual intervention.
+Whenever code is pushed to GitHub, Jenkins automatically triggers the pipeline via Webhook, builds a Docker image, pushes it to Docker Hub, and deploys the latest version on an AWS EC2 instance.
 
-This project follows a production-style Continuous Integration and Continuous Deployment (CI/CD) workflow.
-
----
-
-# 🎯 Project Objectives
-
-- Automate application deployment
-- Eliminate manual deployment process
-- Build Docker images automatically
-- Push images to Docker Hub
-- Deploy latest application on AWS EC2
-- Demonstrate an end-to-end DevOps workflow
-- Learn production-style CI/CD implementation
+The complete deployment process is fully automated without any manual intervention.
 
 ---
 
-# 🏗️ Architecture Diagram
-
-<p align="center">
-
-<img src="architecture/architecture.png" width="1000">
-
-</p>
-
----
-
-# ⚙️ Tech Stack
+# 🛠 Tech Stack
 
 | Category | Technology |
 |-----------|------------|
-| Version Control | Git & GitHub |
+| Cloud | AWS EC2 |
 | CI/CD | Jenkins |
+| Source Control | GitHub |
 | Containerization | Docker |
-| Container Registry | Docker Hub |
-| Cloud Platform | AWS EC2 |
+| Registry | Docker Hub |
 | Operating System | Ubuntu Linux |
 | Application | Node.js |
-| Automation | GitHub Webhooks |
-
----
-
-# ⭐ Key Features
-
-- Automated CI/CD Pipeline
-- GitHub Webhook Integration
-- Jenkins Declarative Pipeline
-- Dockerized Application
-- Docker Hub Image Registry
-- AWS EC2 Deployment
-- Automatic Container Replacement
-- Zero Manual Deployment
-- Production-style Workflow
-- End-to-End Automation
-
----
-
-# 📊 Project Metrics
-
-| Metric | Value |
-|---------|-------|
-| CI/CD Tool | Jenkins |
-| Cloud Platform | AWS EC2 |
-| Container Platform | Docker |
-| Container Registry | Docker Hub |
-| Application | Node.js Todo App |
-| Pipeline Stages | 5 |
-| Trigger Method | GitHub Webhook |
-| Build Time | ~40 Seconds |
-| Deployment Time | ~15 Seconds |
-| Deployment Type | Fully Automated |
-| Infrastructure | Ubuntu EC2 |
-| Availability | 24×7 |
 
 ---
 
@@ -108,252 +43,244 @@ This project follows a production-style Continuous Integration and Continuous De
 ```text
 automated-cicd-pipeline/
 
-│
 ├── app/
-│   ├── app.js
-│   ├── Dockerfile
-│   ├── package.json
-│   └── ...
-│
 ├── architecture/
-│   └── architecture.png
+│   ├── architecture.png
+│   └── pipeline-flow.png
 │
 ├── docs/
 │   ├── 01-project-overview.md
 │   ├── 02-aws-setup.md
 │   ├── 03-jenkins-installation.md
 │   ├── 04-github-webhook.md
-│   ├── 05-cicd-pipeline.md
-│   ├── 06-deployment.md
-│   └── 07-troubleshooting.md
+│   └── 05-cicd-pipeline.md
 │
 ├── screenshots/
-│
 ├── Jenkinsfile
-│
-├── .gitignore
-│
+├── README.md
 ├── LICENSE
-│
-└── README.md
+└── .gitignore
 ```
 
 ---
 
-# 🔄 CI/CD Pipeline Workflow
+# ⚙️ CI/CD Pipeline
 
-```text
+```
 Developer
-
-        │
-        ▼
-
-Push Code to GitHub
-
-        │
-        ▼
-
-GitHub Webhook Trigger
-
-        │
-        ▼
-
-Jenkins Pipeline Starts
-
-        │
-        ▼
-
-Clone Repository
-
-        │
-        ▼
-
-Build Docker Image
-
-        │
-        ▼
-
-Login to Docker Hub
-
-        │
-        ▼
-
-Push Docker Image
-
-        │
-        ▼
-
-SSH into AWS EC2
-
-        │
-        ▼
-
-Pull Latest Docker Image
-
-        │
-        ▼
-
-Stop Existing Container
-
-        │
-        ▼
-
-Run New Docker Container
-
-        │
-        ▼
-
-Application Live
+      │
+      ▼
+ GitHub Repository
+      │
+ GitHub Webhook
+      │
+      ▼
+ Jenkins Pipeline
+      │
+ ┌──────────────────────────────┐
+ │ Clone Repository             │
+ │ Build Docker Image           │
+ │ Login Docker Hub             │
+ │ Push Docker Image            │
+ │ Deploy on AWS EC2            │
+ └──────────────────────────────┘
+      │
+      ▼
+Docker Container Running
+      │
+      ▼
+Live Node.js Application
 ```
 
 ---
 
-# ⚡ Jenkins Pipeline Stages
+# ✅ Pipeline Stages
 
-| Stage | Description |
-|---------|-------------|
-| Clone Repository | Fetch latest source code from GitHub |
-| Build Docker Image | Build Docker image using Dockerfile |
-| Login Docker Hub | Authenticate Docker Hub |
-| Push Docker Image | Upload latest Docker image |
-| Deploy on AWS EC2 | Pull latest image and restart container |
-
----
-
-# 🚀 Deployment Workflow
-
-1. Developer pushes code to GitHub.
-
-2. GitHub Webhook automatically triggers Jenkins.
-
-3. Jenkins clones the latest repository.
-
-4. Docker image is built.
-
-5. Jenkins logs into Docker Hub.
-
-6. Docker image is pushed to Docker Hub.
-
-7. AWS EC2 pulls the latest image.
-
-8. Existing container is stopped.
-
-9. Old container is removed.
-
-10. New container starts automatically.
-
-11. Updated application becomes live.
+| Stage | Status |
+|--------|--------|
+| Clone Repository | ✅ |
+| Build Docker Image | ✅ |
+| Docker Hub Login | ✅ |
+| Push Docker Image | ✅ |
+| Deploy on AWS EC2 | ✅ |
+| Automatic Deployment | ✅ |
 
 ---
 
 # 📸 Project Screenshots
 
-## AWS EC2 Instance
+<table>
 
-![](screenshots/ec2-instance.png)
+<tr>
+
+<td align="center">
+
+<b>AWS EC2 Instance</b><br><br>
+
+<img src="screenshots/01-aws-ec2-instance.png">
+
+</td>
+
+<td align="center">
+
+<b>Security Group Configuration</b><br><br>
+
+<img src="screenshots/02-security-group-configuration.png">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+<b>Docker Installation</b><br><br>
+
+<img src="screenshots/03-docker-installation-verification.png">
+
+</td>
+
+<td align="center">
+
+<b>Jenkins Service Running</b><br><br>
+
+<img src="screenshots/04-jenkins-service-running.png">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+<b>Docker Group Configuration</b><br><br>
+
+<img src="screenshots/05-add-jenkins-to-docker-group.png">
+
+</td>
+
+<td align="center">
+
+<b>Jenkins Dashboard</b><br><br>
+
+<img src="screenshots/06-jenkins-dashboard.png">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+<b>GitHub Webhook</b><br><br>
+
+<img src="screenshots/07-github-webhook-configuration.png">
+
+</td>
+
+<td align="center">
+
+<b>Pipeline Job</b><br><br>
+
+<img src="screenshots/08-jenkins-pipeline-job.png">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+<b>Blue Ocean Pipeline</b><br><br>
+
+<img src="screenshots/09-blueocean-pipeline-view.png">
+
+</td>
+
+<td align="center">
+
+<b>Docker Hub Repository</b><br><br>
+
+<img src="screenshots/10-dockerhub-image.png">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+<b>Running Docker Container</b><br><br>
+
+<img src="screenshots/11-running-docker-container.png">
+
+</td>
+
+<td align="center">
+
+<b>Live Application</b><br><br>
+
+<img src="screenshots/12-application-output.png">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="2" align="center">
+
+<b>Automatic Deployment after GitHub Push</b><br><br>
+
+<img src="screenshots/13-auto-deployment-after-github-push.png">
+
+</td>
+
+</tr>
+
+</table>
 
 ---
 
-## Security Group Configuration
+# 📚 Documentation
 
-![](screenshots/security-group.png)
-
----
-
-## Jenkins Dashboard
-
-![](screenshots/jenkins-dashboard.png)
-
----
-
-## Jenkins Pipeline Execution
-
-![](screenshots/jenkins-blueocean.png)
-
----
-
-## Docker Hub Repository
-
-![](screenshots/dockerhub.png)
-
----
-
-## Running Docker Container
-
-![](screenshots/docker-running.png)
-
----
-
-## Live Application
-
-![](screenshots/application.png)
-
----
-
-# 📖 Documentation
-
-Complete project documentation is available inside the **docs** directory.
+Detailed documentation is available inside the **docs** directory.
 
 | Document | Description |
-|-----------|-------------|
-| 01-project-overview | Project Introduction |
-| 02-aws-setup | AWS EC2 Configuration |
-| 03-jenkins-installation | Jenkins Installation Guide |
-| 04-github-webhook | GitHub Webhook Setup |
-| 05-cicd-pipeline | Jenkins Pipeline Configuration |
-| 06-deployment | Deployment Process |
-| 07-troubleshooting | Common Issues & Solutions |
+|----------|-------------|
+| 01-project-overview.md | Project Introduction |
+| 02-aws-setup.md | AWS EC2 Configuration |
+| 03-jenkins-installation.md | Jenkins Installation |
+| 04-github-webhook.md | GitHub Webhook Setup |
+| 05-cicd-pipeline.md | Jenkins Pipeline Configuration |
 
 ---
 
-# 🎯 Skills Demonstrated
+# 🚀 Future Improvements
 
-- Continuous Integration (CI)
-- Continuous Deployment (CD)
-- Jenkins Pipeline
-- Docker
-- Docker Hub
-- AWS EC2
-- Git & GitHub
-- GitHub Webhooks
-- Linux Administration
-- Shell Commands
-- DevOps Automation
-
----
-
-# 🚀 Future Enhancements
-
-- Kubernetes Deployment
-- Helm Charts
-- Terraform Infrastructure
 - SonarQube Integration
 - Trivy Image Scanning
-- Prometheus Monitoring
-- Grafana Dashboard
-- ArgoCD GitOps Deployment
-- Multi-Environment Deployment
-- Slack Notification Integration
+- Kubernetes Deployment
+- ArgoCD GitOps
+- Prometheus & Grafana Monitoring
 
 ---
 
 # 👨‍💻 Author
 
-## Shivam Malik
+**Shivam Malik**
 
-**Cloud & DevOps Engineer**
+🔗 GitHub  
+https://github.com/Shivam-Malik-Dev
 
-### Connect with me
-
-- GitHub: https://github.com/Shivam-Malik-Dev
-- LinkedIn: https://www.linkedin.com/in/shivam-malik-59b13a29b/
-
----
-
-# ⭐ Support
-
-If you found this project useful, consider giving it a ⭐ on GitHub.
-
-It motivates me to build and share more DevOps projects.
+🔗 LinkedIn  
+https://www.linkedin.com/in/shivam-malik-59b13a29b/
 
 ---
+
+⭐ **If you found this project useful, consider giving it a Star.**
