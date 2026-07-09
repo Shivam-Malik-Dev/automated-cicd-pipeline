@@ -89,19 +89,6 @@ Live Node.js Application
 
 ---
 
-# ✅ Pipeline Stages
-
-| Stage | Status |
-|--------|--------|
-| Clone Repository | ✅ |
-| Build Docker Image | ✅ |
-| Docker Hub Login | ✅ |
-| Push Docker Image | ✅ |
-| Deploy on AWS EC2 | ✅ |
-| Automatic Deployment | ✅ |
-
----
-
 # 📸 Project Screenshots
 
 <table>
@@ -239,20 +226,6 @@ Live Node.js Application
 </tr>
 
 </table>
-
----
-
-# 📚 Documentation
-
-Detailed documentation is available inside the **docs** directory.
-
-| Document | Description |
-|----------|-------------|
-| 01-project-overview.md | Project Introduction |
-| 02-aws-setup.md | AWS EC2 Configuration |
-| 03-jenkins-installation.md | Jenkins Installation |
-| 04-github-webhook.md | GitHub Webhook Setup |
-| 05-cicd-pipeline.md | Jenkins Pipeline Configuration |
 
 ---
 
