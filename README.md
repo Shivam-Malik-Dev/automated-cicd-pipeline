@@ -6,12 +6,6 @@
 
 </p>
 
-<p align="center">
-
-<img src="architecture/pipeline-flow.png" width="95%">
-
-</p>
-
 ---
 
 ## 📌 Project Overview
