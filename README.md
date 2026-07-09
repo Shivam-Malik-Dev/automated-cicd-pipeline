@@ -1,11 +1,5 @@
 # 🚀 Automated CI/CD Pipeline for Node.js Todo Application
 
-<p align="center">
-
-<img src="architecture/architecture.png" width="95%">
-
-</p>
-
 ---
 
 ## 📌 Project Overview
@@ -15,6 +9,14 @@ This project demonstrates a complete **End-to-End CI/CD Pipeline** for a Node.js
 Whenever code is pushed to GitHub, Jenkins automatically triggers the pipeline via Webhook, builds a Docker image, pushes it to Docker Hub, and deploys the latest version on an AWS EC2 instance.
 
 The complete deployment process is fully automated without any manual intervention.
+
+---
+
+<p align="center">
+
+<img src="architecture/architecture.png" width="95%">
+
+</p>
 
 ---
 
